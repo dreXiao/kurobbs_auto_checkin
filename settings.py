@@ -21,6 +21,7 @@ class Settings:
     qmsg_token: Optional[str] = None
     qq: Optional[str] = None
     bot: Optional[str] = None
+    qmsg_server_url: Optional[str] = None
 
     @classmethod
     def load(cls) -> "Settings":
