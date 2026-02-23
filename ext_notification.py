@@ -13,6 +13,8 @@ class NotificationService:
 
     def send(self, message: str):
         title = "库街区自动签到任务"
+        logger.info(f"qmsgUrl={url}")
+        logger.info(f"qmsgPayload={payload}")
         delivered = [
             self._send_bark(title, message),
             self._send_server3(title, message),
