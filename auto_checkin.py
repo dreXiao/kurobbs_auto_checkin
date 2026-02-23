@@ -28,7 +28,7 @@ class KurobbsClient:
     FIND_ROLE_LIST_API_URL = "https://api.kurobbs.com/gamer/role/default"
     SIGN_URL = "https://api.kurobbs.com/encourage/signIn/v2"
     USER_SIGN_URL = "https://api.kurobbs.com/user/signIn"
-    USER_MINE_URL = "https://api.kurobbs.com/user/mineV2"
+    USER_MINE_URL = "https://api.kurobbs.com/user/mineV3"
 
     def __init__(self, token: str):
         if not token:
