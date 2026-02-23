@@ -54,6 +54,7 @@ class NotificationService:
         if not self.settings.qmsg_token or not self.settings.qmsg_server_url:
             return False
         url = f"{self.settings.qmsg_server_url}/{self.settings.qmsg_token}/{title}/{message}"
+        logger.info(f"qmsgUrl={url}")
         try:
             response = requests.get(url, timeout=10)
             logger.debug("Sent Qmsg notification, status={}", response.status_code)
