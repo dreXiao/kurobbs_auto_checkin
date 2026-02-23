@@ -62,6 +62,8 @@ class NotificationService:
         logger.info(f"qmsgPayload={payload}")
         try:
             response = requests.post(url,json=payload, timeout=10)
+            logger.info(f"Qmsg status_code={response.status_code}")
+            logger.info(f"Qmsg response_text={response.text}")
             logger.debug("Sent Qmsg notification, status={}", response.status_code)
         except requests.RequestException as exc:
             logger.warning("Failed to push Qmsg notification: {}", exc)
