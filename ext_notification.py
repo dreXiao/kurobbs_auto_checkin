@@ -17,6 +17,7 @@ class NotificationService:
         delivered = [
             self._send_bark(title, message),
             self._send_server3(title, message),
+            self._send_qmsg(title, message),
         ]
         if not any(delivered):
             logger.debug("No notification channel configured; skipped sending result.")
