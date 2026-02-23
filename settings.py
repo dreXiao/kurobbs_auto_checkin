@@ -3,8 +3,6 @@ from dataclasses import dataclass
 from typing import List, Optional
 import os
 
-load_dotenv()
-
 class SettingsError(Exception):
     """Raised when required settings are missing or invalid."""
 
