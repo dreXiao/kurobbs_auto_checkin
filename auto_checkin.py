@@ -187,6 +187,7 @@ def main():
     notifier = NotificationService(settings)
 
     try:
+        logger.info(f"进入主程序{settings.qmsg_token},{settings.qmsg_server_url}")
         kurobbs = KurobbsClient(settings.token)
         kurobbs.start()
         if kurobbs.msg:
