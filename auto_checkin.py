@@ -174,7 +174,7 @@ def main():
             os.getenv("SERVER3_SEND_KEY", ""),
             os.getenv("QMSG_TOKEN",""),
             os.getenv("QQ",""),
-            os.getenv("BOT","")
+            os.getenv("BOT",""),
         ],
     )
 
