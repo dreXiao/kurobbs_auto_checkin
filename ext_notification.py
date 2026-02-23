@@ -50,7 +50,6 @@ class NotificationService:
         return True
 
     def _send_qmsg(self, title: str, message: str) -> bool:
-        logger.info(f"进入了qmsg函数，环境变量：{self.settings.qmsg_token},{self.settings.qmsg_server_url}")
         if not self.settings.qmsg_token or not self.settings.qmsg_server_url:
             return False
         url = f"{self.settings.qmsg_server_url}/{self.settings.qmsg_token}"
