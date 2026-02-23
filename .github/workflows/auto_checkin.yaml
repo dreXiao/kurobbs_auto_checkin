@@ -37,5 +37,8 @@ jobs:
           BARK_DEVICE_KEY: ${{ secrets.BARK_DEVICE_KEY }}
           BARK_SERVER_URL: ${{ secrets.BARK_SERVER_URL }}
           SERVER3_SEND_KEY: ${{ secrets.SERVER3_SEND_KEY }} # ServerChan3
+          QMSG_TOKEN: ${{ secrets.QMSG_TOKEN }}
+          QQ: ${{ secrets.QQ }}
+          BOT: ${{ secrets.BOT }}
         run: |
           python auto_checkin.py
