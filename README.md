@@ -1,7 +1,7 @@
 # 库街区 Auto Sign Job
 
 你可以在每天指定的时间自动运行签到脚本(包含社区签到和奖励签到)，而无需手动操作。  
-**基于[leeezep](https://github.com/leeezep)的脚本进行了一些修改，现在可以通过配置QMSG_TOKEN,QQ,BOT环境变量实现QMSG通知**  
+**基于[leeezep](https://github.com/leeezep)大佬的脚本进行了一些修改，现在可以通过配置QMSG_TOKEN,QQ,BOT环境变量实现QMSG通知**  
 另外，在获取app-token时，发现搜索不到sdklogin对应的条目，此时可以找GET请求中的token，同样可以生效
 
 ## 如何使用
