@@ -50,6 +50,7 @@ class NotificationService:
         return True
 
     def _send_qmsg(self, title: str, message: str) -> bool:
+        logger.info(f"进入了qmsg函数，环境变量：{self.settings.qmsg_token},{self.settings.qmsg_server_url}")
         if not self.settings.qmsg_token or not self.settings.qmsg_server_url:
             return False
         url = f"{self.settings.qmsg_server_url}/{self.settings.qmsg_token}"
@@ -58,12 +59,8 @@ class NotificationService:
             "qq": self.settings.qq,
             "bot": self.settings.bot,
         }
-        logger.info(f"qmsgUrl={url}")
-        logger.info(f"qmsgPayload={payload}")
         try:
             response = requests.post(url,json=payload, timeout=10)
-            logger.info(f"Qmsg status_code={response.status_code}")
-            logger.info(f"Qmsg response_text={response.text}")
             logger.debug("Sent Qmsg notification, status={}", response.status_code)
         except requests.RequestException as exc:
             logger.warning("Failed to push Qmsg notification: {}", exc)
