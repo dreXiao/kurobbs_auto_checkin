@@ -18,6 +18,9 @@ class Settings:
     bark_device_key: Optional[str] = None
     bark_server_url: Optional[str] = None
     server3_send_key: Optional[str] = None
+    qmsg_token: Optional[str] = None
+    qq: Optional[str] = None
+    bot: Optional[str] = None
 
     @classmethod
     def load(cls) -> "Settings":
@@ -31,6 +34,9 @@ class Settings:
             bark_device_key=os.getenv("BARK_DEVICE_KEY"),
             bark_server_url=os.getenv("BARK_SERVER_URL"),
             server3_send_key=os.getenv("SERVER3_SEND_KEY"),
+            qmsg_token=os.getenv("QMSG_TOKEN"),
+            qq=os.getenv("QQ"),
+            bot=os.getenv("BOT"),
         )
 
     def sensitive_values(self) -> List[str]:
