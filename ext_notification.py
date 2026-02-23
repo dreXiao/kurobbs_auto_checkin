@@ -1,4 +1,3 @@
-
 import requests
 from loguru import logger
 from serverchan_sdk import sc_send
@@ -50,7 +49,7 @@ class NotificationService:
             logger.warning("Failed to push ServerChan3 notification: {}", exc)
         return True
 
-     def _send_qmsg(self, title: str, message: str) -> bool:
+    def _send_qmsg(self, title: str, message: str) -> bool:
         if not self.settings.qmsg_token or not self.settings.qmsg_server_url:
             return False
         url = f"{self.settings.qmsg_server_url}/{self.settings.qmsg_token}/{title}/{message}"
