@@ -172,6 +172,9 @@ def main():
             os.getenv("BARK_DEVICE_KEY", ""),
             os.getenv("BARK_SERVER_URL", ""),
             os.getenv("SERVER3_SEND_KEY", ""),
+            os.getenv("QMSG_TOKEN",""),
+            os.getenv("QQ",""),
+            os.getenv("BOT","")
         ],
     )
 
