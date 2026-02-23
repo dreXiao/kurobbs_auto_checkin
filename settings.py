@@ -1,7 +1,10 @@
 import os
 from dataclasses import dataclass
 from typing import List, Optional
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 class SettingsError(Exception):
     """Raised when required settings are missing or invalid."""
@@ -38,7 +41,7 @@ class Settings:
             qmsg_token=os.getenv("QMSG_TOKEN"),
             qq=os.getenv("QQ"),
             bot=os.getenv("BOT"),
-            qmsg_server_url="https://qmsg.zendee.cn/send"
+            qmsg_server_url="https://qmsg.zendee.cn/jsend"
         )
 
     def sensitive_values(self) -> List[str]:

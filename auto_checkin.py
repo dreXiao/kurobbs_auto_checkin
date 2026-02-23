@@ -187,9 +187,11 @@ def main():
         kurobbs = KurobbsClient(settings.token)
         kurobbs.start()
         if kurobbs.msg:
+            logger.info("Check-in completed: {}", kurobbs.msg)
             notifier.send(kurobbs.msg)
     except KurobbsClientException as e:
         logger.error(str(e))
+        logger.error("Check-in process encountered errors.")
         notifier.send(str(e))
         sys.exit(1)
     except Exception as e:  # noqa: BLE001

@@ -52,10 +52,16 @@ class NotificationService:
     def _send_qmsg(self, title: str, message: str) -> bool:
         if not self.settings.qmsg_token or not self.settings.qmsg_server_url:
             return False
-        url = f"{self.settings.qmsg_server_url}/{self.settings.qmsg_token}/{title}/{message}"
+        url = f"{self.settings.qmsg_server_url}/{self.settings.qmsg_token}"
+        payload = {
+            "msg": f"{title}\n{message}",
+            "qq": self.settings.qq,
+            "bot": self.settings.bot,
+        }
         logger.info(f"qmsgUrl={url}")
+        logger.info(f"qmsgPayload={payload}")
         try:
-            response = requests.get(url, timeout=10)
+            response = requests.post(url,json=payload, timeout=10)
             logger.debug("Sent Qmsg notification, status={}", response.status_code)
         except requests.RequestException as exc:
             logger.warning("Failed to push Qmsg notification: {}", exc)
