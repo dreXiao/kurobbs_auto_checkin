@@ -49,3 +49,19 @@ class NotificationService:
         except Exception as exc:  # noqa: BLE001
             logger.warning("Failed to push ServerChan3 notification: {}", exc)
         return True
+
+     def _send_qmsg(self, title: str, message: str) -> bool:
+        if not self.settings.qmsg_token:
+            return False
+
+        try:
+            response = sc_send(
+                self.settings.qmsg_token,
+                title,
+                message,
+                {"tags": "Github Action|库街区"},
+            )
+            logger.debug("Sent Qmsg notification: {}", response)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Failed to push Qmsg notification: {}", exc)
+        return True
