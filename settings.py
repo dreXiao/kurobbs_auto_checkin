@@ -38,7 +38,7 @@ class Settings:
             qmsg_token=os.getenv("QMSG_TOKEN"),
             qq=os.getenv("QQ"),
             bot=os.getenv("BOT"),
-            qmsg_server_url=f"https://qmsg.zendee.cn/send/{qmsg_token}"
+            qmsg_server_url=https://qmsg.zendee.cn/send
         )
 
     def sensitive_values(self) -> List[str]:
