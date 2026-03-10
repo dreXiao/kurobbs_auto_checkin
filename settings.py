@@ -19,9 +19,12 @@ class Settings:
     bark_server_url: Optional[str] = None
     server3_send_key: Optional[str] = None
     qmsg_token: Optional[str] = None
+    napcat_token: Optional[str] = None
     qq: Optional[str] = None
     bot: Optional[str] = None
+    group_id: Optional[str] = None
     qmsg_server_url: Optional[str] = None
+    napcat_url: Optional[str] = None
 
     @classmethod
     def load(cls) -> "Settings":
@@ -36,9 +39,12 @@ class Settings:
             bark_server_url=os.getenv("BARK_SERVER_URL"),
             server3_send_key=os.getenv("SERVER3_SEND_KEY"),
             qmsg_token=os.getenv("QMSG_TOKEN"),
+            napcat_token=os.getenv("NAPCAT_TOKEN"),
             qq=os.getenv("QQ"),
             bot=os.getenv("BOT"),
-            qmsg_server_url="https://qmsg.zendee.cn/jsend"
+            group_id=os.getenv("GROUP_ID"),
+            qmsg_server_url="https://qmsg.zendee.cn/jsend"，
+            napcat_url="http://139.129.25.129:3000/send_msg"
         )
 
     def sensitive_values(self) -> List[str]:
