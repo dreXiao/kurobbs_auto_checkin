@@ -71,11 +71,11 @@ class NotificationService:
         #    return False
         if not self.settings.napcat_server_url:
            return False
-        url = f"{self.settings.napcat_server_url}/{self.settings.napcat_token}"
+        url = self.settings.napcat_server_url
         payload = {
             "message_type": "group",
-            "message": f"{title}\n{message}",
             "group_id": self.settings.group_id,
+            "message": f"{title}\n{message}",
         }
         try:
             response = requests.post(url,json=payload, timeout=10)
