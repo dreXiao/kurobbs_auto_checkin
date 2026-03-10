@@ -43,7 +43,7 @@ class Settings:
             qq=os.getenv("QQ"),
             bot=os.getenv("BOT"),
             group_id=os.getenv("GROUP_ID"),
-            qmsg_server_url="https://qmsg.zendee.cn/jsend"，
+            qmsg_server_url="https://qmsg.zendee.cn/jsend",
             napcat_url="http://139.129.25.129:3000/send_msg"
         )
 
