@@ -24,7 +24,7 @@ class Settings:
     bot: Optional[str] = None
     group_id: Optional[str] = None
     qmsg_server_url: Optional[str] = None
-    napcat_url: Optional[str] = None
+    napcat_server_url: Optional[str] = None
 
     @classmethod
     def load(cls) -> "Settings":
@@ -44,7 +44,7 @@ class Settings:
             bot=os.getenv("BOT"),
             group_id=os.getenv("GROUP_ID"),
             qmsg_server_url="https://qmsg.zendee.cn/jsend",
-            napcat_url="http://139.129.25.129:3000/send_msg"
+            napcat_server_url="http://139.129.25.129:3000/send_msg"
         )
 
     def sensitive_values(self) -> List[str]:
