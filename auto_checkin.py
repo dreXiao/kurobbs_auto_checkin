@@ -173,8 +173,10 @@ def main():
             os.getenv("BARK_SERVER_URL", ""),
             os.getenv("SERVER3_SEND_KEY", ""),
             os.getenv("QMSG_TOKEN",""),
+            os.getenv("NAPCAT_TOKEN",""),
             os.getenv("QQ",""),
             os.getenv("BOT",""),
+            os.getenv("GROUP_ID",""),
         ],
     )
 
