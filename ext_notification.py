@@ -17,6 +17,7 @@ class NotificationService:
             self._send_bark(title, message),
             self._send_server3(title, message),
             self._send_qmsg(title, message),
+            self._send_napcat(title,message),
         ]
         if not any(delivered):
             logger.debug("No notification channel configured; skipped sending result.")
@@ -63,4 +64,22 @@ class NotificationService:
             logger.debug("Sent Qmsg notification, status={}", response.status_code)
         except requests.RequestException as exc:
             logger.warning("Failed to push Qmsg notification: {}", exc)
+        return True
+        
+    def _send_napcat(self, title: str, message: str) -> bool:
+        # if not self.settings.napcat_token or not self.settings.napcat_server_url:
+        #    return False
+        if not self.settings.napcat_server_url:
+           return False
+        url = f"{self.settings.napcat_server_url}/{self.settings.napcat_token}"
+        payload = {
+            "message_type": "group",
+            "message": f"{title}\n{message}",
+            "group_id": self.settings.group_id,
+        }
+        try:
+            response = requests.post(url,json=payload, timeout=10)
+            logger.debug("Sent Napcat notification, status={}", response.status_code)
+        except requests.RequestException as exc:
+            logger.warning("Failed to push Napcat notification: {}", exc)
         return True
