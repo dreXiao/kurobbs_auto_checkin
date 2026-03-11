@@ -3,7 +3,7 @@ name: Auto Checkin Job
 on:
   schedule:
     # 每天早上 6 点北京时间（UTC+8）运行
-    - cron: '1 1 * * *'  # UTC 时间 22:00 对应北京时间 6:00
+    - cron: '1 0 * * *'
   workflow_dispatch:  # 允许手动触发
 
 jobs:
@@ -40,5 +40,8 @@ jobs:
           QMSG_TOKEN: ${{ secrets.QMSG_TOKEN }}
           QQ: ${{ secrets.QQ }}
           BOT: ${{ secrets.BOT }}
+          GROUP_ID: ${{ secrets.GROUP_ID }}
+          NAPCAT_SERVER_URL: ${{ secrets.NAPCAT_SERVER_URL }}
+          NAPCAT_TOKEN: ${{ secrets.NAPCAT_TOKEN }}
         run: |
           python auto_checkin.py
