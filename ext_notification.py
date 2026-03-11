@@ -68,7 +68,6 @@ class NotificationService:
         
     def _send_napcat(self, title: str, message: str) -> bool:
         if not self.settings.napcat_server_url:
-            logger.info("NAPCAT NOT FOUND.")
             return False
         url = self.settings.napcat_server_url
         payload = {
@@ -77,7 +76,6 @@ class NotificationService:
             "message": f"{title}\n{message}",
         }
         try:
-            logger.info("NAPCAT FOUND.")
             response = requests.post(url, json=payload, timeout=10)
             logger.debug("Sent Napcat notification, status={}", response.status_code)
         except requests.RequestException as exc:
