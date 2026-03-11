@@ -67,10 +67,9 @@ class NotificationService:
         return True
         
     def _send_napcat(self, title: str, message: str) -> bool:
-        # if not self.settings.napcat_token or not self.settings.napcat_server_url:
-        #    return False
         if not self.settings.napcat_server_url:
-           return False
+            logger.debug("NAPCAT NOT FOUND.")
+            return False
         url = self.settings.napcat_server_url
         payload = {
             "message_type": "group",
@@ -78,7 +77,7 @@ class NotificationService:
             "message": f"{title}\n{message}",
         }
         try:
-            response = requests.post(url,json=payload, timeout=10)
+            response = requests.post(url, json=payload, timeout=10)
             logger.debug("Sent Napcat notification, status={}", response.status_code)
         except requests.RequestException as exc:
             logger.warning("Failed to push Napcat notification: {}", exc)
