@@ -44,9 +44,10 @@ class Settings:
             bot=os.getenv("BOT"),
             group_id=os.getenv("GROUP_ID"),
             qmsg_server_url="https://qmsg.zendee.cn/jsend",
-            napcat_server_url="http://139.129.25.129:3000/send_msg"
+            napcat_server_url="http://139.129.25.129:3000/send_msg",
+            napcat_token=os.getenv("NAPCAT_TOKEN")
         )
 
     def sensitive_values(self) -> List[str]:
         """Values that should be redacted from logs."""
-        return [value for value in [self.token, self.bark_device_key, self.bark_server_url, self.server3_send_key] if value]
+        return [value for value in [self.token, self.bark_device_key, self.bark_server_url, self.server3_send_key, self.napcat_token] if value]
