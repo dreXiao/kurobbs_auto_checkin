@@ -69,7 +69,7 @@ class NotificationService:
     def _send_napcat(self, title: str, message: str) -> bool:
         if not self.settings.napcat_token or not self.settings.napcat_server_url:
             return False
-        url = f"{self.settings.napcat_server_url}/send_msg"
+        url = f"{self.settings.napcat_server_url}"
         headers = {
         "Authorization": f"Bearer {self.settings.napcat_token}"
         }
