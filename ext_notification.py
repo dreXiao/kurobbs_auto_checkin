@@ -69,7 +69,7 @@ class NotificationService:
     def _send_napcat(self, title: str, message: str) -> bool:
         if not self.settings.napcat_token or not self.settings.napcat_server_url:
             return False
-        url = f"{self.settings.qmsg_server_url}?access token={self.settings.qmsg_token}"
+        url = f"{self.settings.qmsg_server_url}?access_token={self.settings.qmsg_token}"
         payload = {
             "message_type": "group",
             "group_id": self.settings.group_id,
