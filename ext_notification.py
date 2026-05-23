@@ -69,14 +69,17 @@ class NotificationService:
     def _send_napcat(self, title: str, message: str) -> bool:
         if not self.settings.napcat_token or not self.settings.napcat_server_url:
             return False
-        url = f"{self.settings.qmsg_server_url}?access_token={self.settings.qmsg_token}"
+        url = self.settings.napcat_server_url
+        headers = {
+        "Authorization": f"Bearer {self.settings.napcat_token}"
+        }
         payload = {
             "message_type": "group",
             "group_id": self.settings.group_id,
             "message": f"{title}\n{message}",
         }
         try:
-            response = requests.post(url, json=payload, timeout=10)
+            response = requests.post(url, headers=headers, json=payload, timeout=10)
             logger.debug("Sent Napcat notification, status={}", response.status_code)
         except requests.RequestException as exc:
             logger.warning("Failed to push Napcat notification: {}", exc)
